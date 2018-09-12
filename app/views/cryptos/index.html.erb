@@ -1,1 +1,8 @@
-index.html.erb
+<div class="container">
+  <p> <% @coins.each do |coin| %>
+
+      <p> Crypto: <%= coin['nome']%> </p>
+      <p> Price: $<%= coin['preco'].to_f.round(4) %></p>
+    <% end %> %>
+  </p>
+</div>
