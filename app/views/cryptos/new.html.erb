@@ -2,9 +2,9 @@
 
  <div class="form-content">
     <%= simple_form_for [@crypto] do |f| %>
-      <%= f.input :content, as: :text, label: "Comentário" %>
-      <%= f.input :content, as: :text, label: "Comentário" %>
-      <%= f.input :content, as: :text, label: "Comentário" %>
+      <%= f.input :name, as: :text, label: "Comentário" %>
+      <%= f.input :price, as: :text, label: "Price paid" %>
+      <%= f.input :total, as: :text, label: "Total" %>
       <%= f.submit "Add", class: "btn btn-primary" %>
     <% end %>
 </div>

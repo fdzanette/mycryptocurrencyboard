@@ -16,7 +16,12 @@ class CryptosController < ApplicationController
 
   def create
     @crypto = Crypto.new(crypto_params)
-    @crypto.save
+    @crypto.user = current_user
+    if @crypto.save
+      redirect_to crypto_path(@crypto)
+    else
+      render :new
+    end
   end
 
   private
