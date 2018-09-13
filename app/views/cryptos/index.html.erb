@@ -14,10 +14,10 @@
      <tbody>
       <td><%= crypto['nome']%></td>
       <td><%= crypto['ticker'] %></td>
-      <td>$<%= crypto['preco'].to_f.round(4) %></td>
+      <td><%= number_to_currency(crypto['preco'], precision: 4) %></td>
       <td><%= crypto['change'] %>%</td>
-      <td>$<%= crypto['volume'].to_f.round(2) %>%</td>
-      <td>$<%= crypto['market_cap'].to_f.round(2) %>%</td>
+      <td><%= number_to_currency(crypto['volume'].to_f.round(2)) %></td>
+      <td><%= number_to_currency(crypto['market_cap']) %></td>
       <td> <%= link_to "Add to portfolio", new_crypto_path %>  </td>
       </tbody>
   <% end %>

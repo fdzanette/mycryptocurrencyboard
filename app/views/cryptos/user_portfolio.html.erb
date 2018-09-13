@@ -11,9 +11,9 @@
     <tbody>
     <td> <%= crypto.name %> </td>
     <td> <%= crypto.name %> </td>
-    <td> <%= crypto.price %> </td>
-    <td> $<%= crypto.total %> </td>
-    <td> $<%= crypto.total %> </td>
+    <td> <%= number_to_currency(crypto.price) %> </td>
+    <td> <%= number_to_currency(crypto.total) %> </td>
+    <td> <%= number_to_currency(crypto.total) %> </td>
     <% end %>
   </tbody>
   </table>
