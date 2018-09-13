@@ -1,3 +1,15 @@
 <div class="container">
-  <%= @crypto %>
+  <table class="table">
+    <thead>
+      <td> Name </td>
+      <td> Price </td>
+      <td> Total </td>
+    </thead>
+      <tbody>
+      <td> <%= @crypto.name %> </td>
+      <td> <%= @crypto.price %> </td>
+      <td> <%= @crypto.total %> </td>
+      </tbody>
+  </table>
+  <%= link_to "My portfolio", user_portfolio_cryptos_path %>
 </div>

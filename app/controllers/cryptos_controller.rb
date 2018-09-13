@@ -1,13 +1,16 @@
 class CryptosController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
-  before_action :set_coin, only: [:show]
+  before_action :set_coin, only: [:show, :destroy]
 
   def index
    @cryptos = Crypto.set_crypto_database
   end
 
-  def show
+  def user_portfolio
+    @cryptos = current_user.cryptos
+  end
 
+  def show
   end
 
   def new
@@ -24,6 +27,15 @@ class CryptosController < ApplicationController
     end
   end
 
+  def destroy
+    if @crypto.user != current_user
+      flash[:alert] = "Not your coin"
+      render :show
+    else
+      @crypto.destroy
+    end
+
+  end
   private
 
   def crypto_params

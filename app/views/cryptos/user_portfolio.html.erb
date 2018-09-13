@@ -1,0 +1,20 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <td> Name </td>
+      <td> Current Price </td>
+      <td> Purchase Price </td>
+      <td> Total </td>
+      <td> Profit/Loss </td>
+    </thead>
+    <% @cryptos.each do |crypto| %>
+    <tbody>
+    <td> <%= crypto.name %> </td>
+    <td> <%= crypto.name %> </td>
+    <td> <%= crypto.price %> </td>
+    <td> $<%= crypto.total %> </td>
+    <td> $<%= crypto.total %> </td>
+    <% end %>
+  </tbody>
+  </table>
+</div>
