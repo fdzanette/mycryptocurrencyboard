@@ -7,6 +7,7 @@ class CryptosController < ApplicationController
   end
 
   def user_portfolio
+    @all_cryptos = Crypto.set_crypto_database
     @cryptos = current_user.cryptos
   end
 

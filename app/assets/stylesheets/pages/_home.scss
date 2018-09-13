@@ -1,1 +1,11 @@
 // Specific CSS for your home-page
+tbody td a {
+  font-size: 13px;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+thead td {
+  font-family: Arial;
+}

@@ -1,20 +1,36 @@
 <div class="container">
   <table class="table">
     <thead>
-      <td> Name </td>
-      <td> Current Price </td>
-      <td> Purchase Price </td>
-      <td> Total </td>
-      <td> Profit/Loss </td>
+      <tr>
+        <td> Name </td>
+        <td> Current Price </td>
+        <td> Purchase Price </td>
+        <td> Total </td>
+        <td> Profit/Loss </td>
+      </tr>
     </thead>
+    <% net_worth = 0 %>
+  <% @all_cryptos.each_with_index do |data, index| %>
     <% @cryptos.each do |crypto| %>
-    <tbody>
-    <td> <%= crypto.name %> </td>
-    <td> <%= crypto.name %> </td>
-    <td> <%= number_to_currency(crypto.price) %> </td>
-    <td> <%= number_to_currency(crypto.total) %> </td>
-    <td> <%= number_to_currency(crypto.total) %> </td>
+      <% if crypto.name == data['nome'] %>
+      <tbody>
+        <tr>
+          <td> <%= crypto.name %> </td>
+          <td> <%= number_to_currency(data['preco'], precision: 4) %> </td>
+          <td> <%= number_to_currency(crypto.price) %> </td>
+          <td> <%= number_to_currency(crypto.total) %> </td>
+          <td> <%= number_to_currency((crypto.total * crypto.price) - (crypto.total * data['preco'].to_f) ) %> </td>
+        </tr>
+      </tbody>
+      <% net_worth += ((crypto.total * crypto.price) - (crypto.total * data['preco'].to_f) ) %>
+      <% end %>
     <% end %>
-  </tbody>
+  <% end %>
   </table>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <p> Total profit/loss: <%= number_to_currency(net_worth) %> </p>
+    </div>
+  </div>
+
 </div>
