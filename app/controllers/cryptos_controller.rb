@@ -1,21 +1,32 @@
 class CryptosController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
-  require 'json'
-  require 'open-uri'
+  before_action :set_coin, only: [:show]
 
   def index
-    @coins = []
-    @cryptos = fetch_data_from_api
-    @cryptos.each do |crypto|
-      @coins << {'nome' => crypto['name'],
-                 'preco' => crypto['price_usd']}
-    end
-    @coins
+   @cryptos = Crypto.set_crypto_database
   end
 
-  def fetch_data_from_api
-    url = "https://api.coinmarketcap.com/v1/ticker/"
-    uri = open(url).read
-    parsed_data = JSON.parse(uri)
+  def show
+
   end
+
+  def new
+    @crypto = Crypto.new
+  end
+
+  def create
+    @crypto = Crypto.new(crypto_params)
+    @crypto.save
+  end
+
+  private
+
+  def crypto_params
+    params.require(:crypto).permit(:name, :price, :total)
+  end
+
+  def set_coin
+    @crypto = Crypto.find(params[:id])
+  end
+
 end

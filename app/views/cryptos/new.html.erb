@@ -1,0 +1,12 @@
+<h1>Add currency</h1>
+
+ <div class="form-content">
+    <%= simple_form_for [@crypto] do |f| %>
+      <%= f.input :content, as: :text, label: "Comentário" %>
+      <%= f.input :content, as: :text, label: "Comentário" %>
+      <%= f.input :content, as: :text, label: "Comentário" %>
+      <%= f.submit "Add", class: "btn btn-primary" %>
+    <% end %>
+</div>
+
+<%= link_to "Back", root_path %>
