@@ -14,14 +14,14 @@
      </thead>
    <% @cryptos.each_with_index do |crypto, num| %>
     <tbody>
-      <tr>
-        <td class="text-center"><%= crypto['nome']%></td>
+      <tr class="add-to-portfolio">
+        <td class="text-center crypto-name"><%= crypto['nome']%></td>
         <td class="text-center"><%= crypto['ticker'] %></td>
         <td class="text-center"><%= number_to_currency(crypto['preco'], precision: 4) %></td>
         <td class="text-center"><%= crypto['change'] %>%</td>
         <td class="text-center"><%= number_to_currency(crypto['volume'].to_f.round(2)) %></td>
         <td class="text-center"><%= number_to_currency(crypto['market_cap']) %></td>
-        <td class="text-center"> <%= link_to "Add to portfolio", new_crypto_path, id: "btn-add" %>  </td>
+        <td class="text-center"> <%= link_to "Add to portfolio", new_crypto_path %>  </td>
       </tr>
     </tbody>
   <% end %>
