@@ -4,7 +4,7 @@
  <div class="form-content">
     <%= simple_form_for [@crypto] do |f| %>
       <%= f.input :name, label: "Name" %>
-      <%= f.input :price, label: "Price paid" %>
+      <%= f.input :price, label: "Price paid", :autofocus => true %>
       <%= f.input :total, label: "Total" %>
       <%= f.submit "Add", class: "btn btn-primary" %>
     <% end %>
