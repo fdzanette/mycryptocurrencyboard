@@ -40,6 +40,14 @@ tbody td .glyphicon-remove {
   justify-content: space-between;
 }
 
+.link-to-portfolio a {
+  font-style: italic;
+  margin-top: 5px;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 td.x-button {
   min-width: 20px;
 }
