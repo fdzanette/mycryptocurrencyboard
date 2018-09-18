@@ -11,7 +11,7 @@
           <td class="text-center"> Total Owned</td>
           <td class="text-center"> Current Value</td>
           <td class="text-center"> Profit/Loss </td>
-          <td></td>
+          <td colspan="2" ></td>
         </tr>
       </thead>
       <% net_worth = 0 %>
@@ -28,6 +28,7 @@
             <td class="text-center"> <%= number_to_currency(crypto.total * data['preco'].to_f) %> </td>
             <td class="text-center"> <%= number_to_currency( (crypto.total * data['preco'].to_f) - (crypto.total * crypto.price) ) %> </td>
             <td class="x-button"> <%= link_to crypto_path(crypto), method: :delete do %> <div class="glyphicon glyphicon-remove" > </div> </td> <% end %>
+            <td class="text-center"> <%= link_to "Edit", edit_crypto_path(crypto)%> </td>
           </tr>
         </tbody>
         <% profit_loss += ( (crypto.total * data['preco'].to_f) - (crypto.total * crypto.price)  ) %>

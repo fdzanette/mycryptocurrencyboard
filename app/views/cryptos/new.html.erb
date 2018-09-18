@@ -1,14 +1,17 @@
 <div class="container">
-<h3>Add <%= %> to portfolio</h3>
+  <h3 class="text-center">Add to portfolio</h3>
 
- <div class="form-content">
-    <%= simple_form_for [@crypto] do |f| %>
-      <%= f.input :name, label: "Name" %>
-      <%= f.input :price, label: "Price paid", :autofocus => true %>
-      <%= f.input :total, label: "Total" %>
-      <%= f.submit "Add", class: "btn btn-primary" %>
-    <% end %>
-</div>
-  <br>
-  <%= link_to "Back", root_path, class: "btn btn-info" %>
+   <div class="form-content">
+      <%= simple_form_for [@crypto] do |f| %>
+        <%= f.input :name, label: "Name" %>
+        <%= f.input :price, label: "Price paid", :autofocus => true %>
+        <%= f.input :total, label: "Total" %>
+        <%= f.submit "Add", class: "btn btn-success" %>
+      <% end %>
+  </div>
+    <br>
+  <div class="btn-back">
+    <%= link_to "Back", root_path, class: "btn btn-info" %>
+  </div>
+
 </div>

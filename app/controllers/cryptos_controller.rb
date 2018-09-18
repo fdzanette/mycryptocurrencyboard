@@ -1,6 +1,6 @@
 class CryptosController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
-  before_action :set_coin, only: [:show, :destroy]
+  before_action :set_coin, only: [:show, :destroy, :edit, :update]
 
   def index
    @cryptos = Crypto.set_crypto_database
@@ -25,6 +25,23 @@ class CryptosController < ApplicationController
       redirect_to crypto_path(@crypto)
     else
       render :new
+    end
+  end
+
+  def edit
+
+  end
+
+  def update
+    if @crypto.user != current_user
+      redirect_to root_path
+    else
+      @crypto.update(crypto_params)
+      if @crypto.save
+        redirect_to crypto_path(@crypto)
+      else
+        render :new
+      end
     end
   end
 
