@@ -1,4 +1,9 @@
 // Specific CSS for your home-page
+
+.table {
+  margin-bottom: 0px;
+}
+
 tbody td a {
   font-size: 13px;
   &:hover {
@@ -23,4 +28,18 @@ thead tr td {
   color: white;
   padding-top: 7px;
   margin-top: 0px;
+}
+
+tbody td .glyphicon-remove {
+  color: red;
+  margin-right: -15px;
+}
+
+.portfolio-numbers {
+  display: flex;
+  justify-content: space-between;
+}
+
+td.x-button {
+  min-width: 20px;
 }

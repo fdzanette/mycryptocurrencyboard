@@ -34,6 +34,7 @@ class CryptosController < ApplicationController
       render :show
     else
       @crypto.destroy
+      redirect_to user_portfolio_cryptos_path
     end
 
   end
