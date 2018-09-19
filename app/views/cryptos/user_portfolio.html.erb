@@ -20,14 +20,14 @@
       <% @cryptos.each do |crypto| %>
         <% if crypto.name == data['nome'] %>
         <tbody>
-          <tr>
+          <tr data-crypto-id="<%= crypto.id %>">
             <td> <%= crypto.name %> </td>
             <td class="text-center"> <%= number_to_currency(data['preco'], precision: 4) %> </td>
             <td class="text-center"> <%= number_to_currency(crypto.price) %> </td>
             <td class="text-center"> <%= (crypto.total) %> </td>
             <td class="text-center"> <%= number_to_currency(crypto.total * data['preco'].to_f) %> </td>
             <td class="text-center"> <%= number_to_currency( (crypto.total * data['preco'].to_f) - (crypto.total * crypto.price) ) %> </td>
-            <td class="x-button"> <%= link_to crypto_path(crypto), method: :delete do %> <div class="glyphicon glyphicon-remove" > </div> </td> <% end %>
+            <td class="x-button"> <%= link_to crypto_path(crypto), method: :delete, remote: true do %> <div class="glyphicon glyphicon-remove" > </div> </td> <% end %>
             <td class="text-center"> <%= link_to "Edit", edit_crypto_path(crypto)%> </td>
           </tr>
         </tbody>
