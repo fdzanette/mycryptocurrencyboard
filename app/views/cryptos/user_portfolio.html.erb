@@ -39,9 +39,11 @@
     </table>
     <div class="panel panel-default">
       <div class="panel-body portfolio-numbers">
-         <strong> Net Worth: </strong> <p id="net-worth"> <%= number_to_currency(net_worth) %> </p>
-         <strong> Total profit/loss: </strong> <p id="profit-loss"> <%= number_to_currency(profit_loss) %> </p>
+        <strong> Net Worth: </strong> <p id="net-worth"> <%= number_to_currency(net_worth) %> </p>
+        <strong> Total profit/loss: </strong> <p id="profit-loss"> <%= number_to_currency(profit_loss) %> </p>
       </div>
-      <%= link_to "Back", root_path, class: "btn btn-default" %>
+    </div>
+    <div class="btn-home">
+      <%= link_to "Back to market table", root_path %>
     </div>
 </div>
