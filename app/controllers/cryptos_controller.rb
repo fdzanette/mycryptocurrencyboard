@@ -1,4 +1,5 @@
 class CryptosController < ApplicationController
+  ActionView::Base.prefix_partial_path_with_controller_namespace = false
   skip_before_action :authenticate_user!, only: [:index]
   before_action :set_coin, only: [:show, :destroy, :edit, :update]
 
@@ -46,18 +47,21 @@ class CryptosController < ApplicationController
   end
 
   def destroy
-    if @crypto.user != current_user
-      flash[:alert] = "Not your coin"
-      render :show
+    @all_cryptos = Crypto.set_crypto_database
+    @cryptos = current_user.cryptos
+    if @crypto.destroy
+      respond_to do |format|
+        format.html { redirect_to user_portfolio_cryptos_path }
+        format.js  # <-- will render `app/views/reviews/destroy.js.erb`
+       end
     else
-      @crypto.destroy
       respond_to do |format|
         format.html { render 'cryptos/user_portfolio' }
-        format.js
+        format.js  # <-- idem
       end
     end
-
   end
+
   private
 
   def crypto_params

@@ -1,3 +1,21 @@
 document.querySelector("[data-crypto-id='<%= @crypto.id %>']").remove();
 
+function refreshForm(innerHTML, innerTEXT) {
+  const newProfitLoss = document.getElementById('profit-loss');
+  const newNetWorth = document.getElementById('net-worth');
+  newProfitLoss.innerHTML = innerHTML;
+  newNetWorth.innerHTML = innerTEXT;
+}
 
+<% net_worth = 0 %>
+<% profit_loss = 0 %>
+<% @all_cryptos.each_with_index do |data, index| %>
+  <% @cryptos.each do |crypto| %>
+    <% if crypto.name == data['nome'] %>
+      <% profit_loss += ( (crypto.total * data['preco'].to_f) - (crypto.total * crypto.price)  ) %>
+      <% net_worth += (crypto.total * data['preco'].to_f) %>
+    <% end %>
+  <% end %>
+<% end %>
+
+refreshForm('<%= number_to_currency(profit_loss) %>', '<%= number_to_currency(net_worth) %>');
