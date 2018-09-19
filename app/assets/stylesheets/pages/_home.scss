@@ -37,7 +37,7 @@ tbody td .glyphicon-remove {
 
 .portfolio-numbers {
   display: flex;
-  justify-content: space-between;
+  //justify-content: space-between;
 }
 
 .link-to-portfolio a {
@@ -50,4 +50,9 @@ tbody td .glyphicon-remove {
 
 td.x-button {
   min-width: 20px;
+}
+
+#profit-loss, #net-worth {
+  margin-left: 10px;
+  margin-right: 20px;
 }

@@ -31,16 +31,17 @@
             <td class="text-center"> <%= link_to "Edit", edit_crypto_path(crypto)%> </td>
           </tr>
         </tbody>
-        <% profit_loss += ( (crypto.total * data['preco'].to_f) - (crypto.total * crypto.price)  ) %>
-        <% net_worth += (crypto.total * data['preco'].to_f) %>
+        <p> <% profit_loss += ( (crypto.total * data['preco'].to_f) - (crypto.total * crypto.price)  ) %> </p>
+        <p> <% net_worth += (crypto.total * data['preco'].to_f) %> </p>
         <% end %>
       <% end %>
     <% end %>
     </table>
     <div class="panel panel-default">
       <div class="panel-body portfolio-numbers">
-        <p> Net Worth: <%= number_to_currency(net_worth) %> </p>
-        <p> Total profit/loss: <%= number_to_currency(profit_loss) %> </p>
+         <strong> Net Worth: </strong> <p id="net-worth"> <%= number_to_currency(net_worth) %> </p>
+         <strong> Total profit/loss: </strong> <p id="profit-loss"> <%= number_to_currency(profit_loss) %> </p>
       </div>
+      <%= link_to "Back", root_path, class: "btn btn-default" %>
     </div>
 </div>

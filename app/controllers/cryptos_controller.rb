@@ -51,7 +51,10 @@ class CryptosController < ApplicationController
       render :show
     else
       @crypto.destroy
-      #redirect_to user_portfolio_cryptos_path
+      respond_to do |format|
+        format.html { render 'cryptos/user_portfolio' }
+        format.js
+      end
     end
 
   end
