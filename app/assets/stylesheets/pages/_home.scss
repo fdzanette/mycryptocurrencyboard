@@ -24,20 +24,17 @@ thead tr td {
 }
 
 .home-title {
-  height: 40px;
+  min-height: 40px;
   background-color: green;
 }
 
 .home-title h4 {
+  font-size: 20px;
   color: white;
   padding-top: 7px;
   margin-top: 0px;
 }
 
-tbody td .glyphicon-remove {
-  color: red;
-  margin-right: -15px;
-}
 
 .portfolio-numbers {
   display: flex;
@@ -62,8 +59,13 @@ tbody td .glyphicon-remove {
   }
 }
 
+tbody td .glyphicon-remove {
+  color: red;
+  margin: 0 auto;
+}
+
 td.x-button {
-  min-width: 20px;
+  width: 15px;
 }
 
 #profit-loss, #net-worth {
@@ -73,4 +75,8 @@ td.x-button {
 
 .panel {
   margin-bottom: 0px;
+}
+
+.portfolio-numbers {
+  font-size: 14px;
 }

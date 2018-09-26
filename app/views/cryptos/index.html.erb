@@ -6,11 +6,11 @@
      <thead class="text-center">
       <tr>
          <td>Crypto</td>
-         <td>Ticker</td>
+         <td class="hidden-xs hidden-sm">Ticker</td>
          <td>Price</td>
          <td>% Change</td>
-         <td>Volume Last 24h</td>
-         <td>Market Cap</td>
+         <td class="hidden-xs hidden-sm">Volume Last 24h</td>
+         <td class="hidden-xs hidden-sm">Market Cap</td>
          <td></td>
        </tr>
      </thead>
@@ -18,11 +18,11 @@
     <tbody>
       <tr>
         <td class="text-center crypto-name"><%= crypto['nome']%></td>
-        <td class="text-center"><%= crypto['ticker'] %></td>
+        <td class="text-center hidden-xs hidden-sm"><%= crypto['ticker'] %></td>
         <td class="text-center"><%= number_to_currency(crypto['preco'], precision: 4) %></td>
         <td class="text-center"><%= crypto['change'] %>%</td>
-        <td class="text-center"><%= number_to_currency(crypto['volume'].to_f.round(2)) %></td>
-        <td class="text-center"><%= number_to_currency(crypto['market_cap']) %></td>
+        <td class="text-center hidden-xs hidden-sm"><%= number_to_currency(crypto['volume'].to_f.round(2)) %></td>
+        <td class="text-center hidden-xs hidden-sm"><%= number_to_currency(crypto['market_cap']) %></td>
         <td class="text-center"> <%= link_to "Add to portfolio", new_crypto_path, id: "#{crypto['nome']}" %>  </td>
       </tr>
     </tbody>
